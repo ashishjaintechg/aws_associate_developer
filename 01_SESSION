@@ -32,3 +32,5 @@ Now we will use admin user :  awsadmin1 user for all aws work.
 We never use root user for any operation on aws account.
 We will see how to create other two users : Console User and CLI User with admin user in next session.
 Thank you
+
+Youtube Link : https://youtu.be/QJATQDAvH0w
