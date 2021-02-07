@@ -1,0 +1,48 @@
+Session 2 :
+1. How to create iam user for console and cli, provide roles and access resources?
+a. First we will create two customer managed policies and will assign later to users
+a. S3 Access policy - S3AccessPolicyUserConsole (This policy will be used by console user for accessing s3.)
+b. Ec2 Access policy - EC2AccessPolicyUserCLI(This policy will be used by CLI user for accessing EC2.)
+b. Now we will create two different user and assign above created policies
+a. User Console S3 Access : UserConsoleS3Access (Console User having S3 Access)
+i. https://934022725031.signin.aws.amazo...​
+b. User CLI Ec2Access : UserCliEC2Access (CLI User having EC2 Access)
+c. Now we will login with different users and check the access provided in incognito mode.
+a. Check UserConsoleS3Access :
+i. We have not provided access to EC2 to this user that’s why it is giving error. “An error occurred fetching instance data: You are not authorized to perform this operation.”
+ii. Now check S3 Access : We are able to create testbuckets11
+b. UserCliEC2Access check
+i. For checking user through CLI we need access key
+1. AKIA5S6AXXWTS7QSZUXV
+2. la8N0hqgMlEk4MKfpdv0a1lQJljYlyADcViwlD81
+ii. For connecting through cli we need AWS CLI software installed
+1. You can install it by python
+a. Need python software installed – check python(I have already installed python 3.8 version, you can download exe and install it easily : https://www.python.org/downloads/wind...​)
+i. https://docs.aws.amazon.com/cli/lates...​
+ii. pip3 install awscli (Run this command for installing it by python)
+2. You can download it 64 bit exe file
+a. I have downloaded exe. We have to execute exe and it will install aws cli automatically. Simple steps we have to follow.
+https://docs.aws.amazon.com/cli/lates...​
+iii. Python process works for both windows as well as Ubuntu machines
+1. You have to install python first then run pip3 install awscli command for Ubuntu
+iv. AWS cli version can be checked by aws --version command (aws-cli/1.16.308)
+v. AWS CLI Commands
+1. aws configure – for connecting from cli, this will ask access id & secret
+2. aws ec2 describe-regions – for checking ec2 regions, it requires region but it has access to ec2.
+3. aws s3 ls – for s3 it gave error An error occurred (AccessDenied) when calling the ListBuckets operation: Access Denied
+vi. Let’s change the access from console and check the same commands.
+1. Now user has S3 Access also : testbuckets11
+d. Good practice : We generally create groups and then assign policies to group and then add users in group. Let’s check that once.
+Task :
+1. Create two policies – s3 & ec2
+2. Create two groups – s3accessgroup & ec2accessgroup
+3. Create two users and add them in different group and verify the associate permissions
+4. Check executing following command in aws cli & set default region
+a. aws ec2 help
+b. Default region name [None]: us-west-2
+5. Login with different access user
+a. Through console
+b. Through cli
+THANK YOU
+
+Youtube link : https://youtu.be/9Yzm4zIr9T4
